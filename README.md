@@ -16,7 +16,7 @@ Ce dépôt peut également aider les débutants à interpréter du code simple, 
 ## Prérequis
 
 - Python 3 installé
-- Un éditeur de texte (VS Code, PyCharm, etc.)
+- Un éditeur de texte (VS Code, PyCharm,Thonny etc.)
 
 ## Installation
 
