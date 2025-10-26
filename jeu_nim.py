@@ -10,7 +10,7 @@
 # Jeu de Nim
 ####################
 
-def saisie_nom():
+def saisie_nom()->str:
     """
     Précondition : 
     Exemple(s) :
@@ -23,7 +23,7 @@ def saisie_nom():
     
     
 
-def saisie_nom_different(nom):
+def saisie_nom_different(nom)->str:
     """ 
     Précondition : 
     Exemple(s) :
@@ -38,7 +38,7 @@ def saisie_nom_different(nom):
     
     
 
-def max_possible_a_prendre(nb_allumettes_courant:int):
+def max_possible_a_prendre(nb_allumettes_courant:int)->int:
     """Renvoie le nombre max d’allumettes à prendre
     Précondition : 
     Exemple(s) :
@@ -69,7 +69,7 @@ def reste(pris:int, totale:int)->int:
     """
     return totale-pris
 
-def saisir_nb_allumettes_prises(max_prise):
+def saisir_nb_allumettes_prises(max_prise)->int:
     """ 
 
     Précondition : 
@@ -82,7 +82,7 @@ def saisir_nb_allumettes_prises(max_prise):
     return nb_allumettes_prises
         
 
-def indice_autre_joueur(indice:int):
+def indice_autre_joueur(indice:int)->int:
     """ 
     Renvoie l'indice de l'autre joueur
     Précondition : 
