@@ -61,7 +61,7 @@ def saisie_pseudo_avec_verification(pseudo:str)->str:
     """
     pseudo2=input("Saisir le second pseudo: ")
     while pseudo2==pseudo:
-        pseudo2=input("Saisir le second pseudo: ")
+        pseudo2=input("Saisir un autre pseudo different: ")
     return pseudo2
         
         
