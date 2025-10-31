@@ -227,7 +227,7 @@ from math import pi,sqrt,cos
 #car[0]=5
 #car[1]=9
 #4.4.2 mystere('bio', '59')
-#appel de cette fonction est egal:'bi5b'
+#appel de cette fonction est egal:'b5i9o'
 #4.4.2 mystere('s', '89')
 #appel de cette fonction est egal:'8s'
 #4.4.2 mystere('', '89')

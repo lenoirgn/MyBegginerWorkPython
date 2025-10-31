@@ -84,15 +84,16 @@ def delai_minimal(lentiers:list[int])->int:
     return mini
             
     
-def infos_compte (cle:str, NCN:str)->str :
+def infos_compte (iban:str)->tuple[int,str] :
     """ Renvoie l'info du compte
 
     Précondition : 
     Exemple(s) :
-    $$$ infos_compte('14', '30001019010000Z67067032')
-    'FR1430001019010000Z67067032'
+    $$$ infos_compte('FR1430001019010000Z67067032')
+    (14, '30001019010000Z67067032')
+    
     """
-    return 'FR'+cle+NCN
+    return (int(iban[2:4]),iban[4:])
 def nb_similitudes(iban1:str, iban2:str)->int:
     """ Renvoie le nombre de caractères identiques à la même position dans les deux NCN
 
