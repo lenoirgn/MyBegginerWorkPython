@@ -115,12 +115,12 @@ def liste_iban(iban:str):
     $$$ liste_iban('FR1430001019010000Z67067032:FR1420041010050500013L02606')
     ['FR1430001019010000Z67067032', 'FR1420041010050500013L02606']
     """
-    iban1=iban[0:27]
-    iban2=iban[28:]
-    lres=[]
-    lres.append(iban1)
-    lres.append(iban2)
-    return lres
+#     iban1=iban[0:27]
+#     iban2=iban[28:]
+#     lres=[]
+#     lres.append(iban1)
+#     lres.append(iban2)
+    return [iban[0:27],iban[28:]]
     
 def nb_max_0(iban:str) ->str:
     """ Renvoie le nombre max de 0 consecutif
@@ -129,8 +129,10 @@ def nb_max_0(iban:str) ->str:
     Exemple(s) :
     $$$ nb_max_0('FR1430001019010000Z67067032')
     4
+    $$$ nb_max_0('FR1436801019010970Z67067032')
+    1
     """
-    maxi=1
+    maxi=0
     comp=0
     for carac in iban:
         if carac=='0':
