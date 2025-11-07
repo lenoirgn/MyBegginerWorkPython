@@ -253,7 +253,7 @@ def main():
 # 5
 # Autre exercice
 # 1.print(5//2*2)
-# 1
+# 4
 # 2. a = "1"
 # print(a*3)
 # 111
