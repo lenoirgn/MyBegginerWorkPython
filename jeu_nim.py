@@ -87,10 +87,10 @@ def indice_autre_joueur(indice:int)->int:
     Renvoie l'indice de l'autre joueur
     Précondition : 
     Exemple(s) :
-    $$$ indice_autre_joueur(2)
-    1
+    $$$ indice_autre_joueur(1)
+    0
     $$$ indice_autre_joueur(0)
-    -1
+    1
     """
     return 1-indice
 
