@@ -116,14 +116,10 @@ def jouer():
         joueur=ljoueur[indice]
         print(f"Nombre d'allumettes est: {nb_allumette_totale}")
         print(f"{joueur} : à vous !")
-
-        
-
-        
         max_prise=max_possible_a_prendre(nb_allumette_totale)
         
         nb_pris=saisir_nb_allumettes_prises(max_prise)
-        nb_allumette_totale-=nb_pris
+        nb_allumette_totale= reste(nb_pris,nb_allumette_totale)
         if nb_allumette_totale==0:
             gagnant=joueur
         indice=indice_autre_joueur(indice)
