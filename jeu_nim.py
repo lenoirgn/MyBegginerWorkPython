@@ -108,7 +108,6 @@ def jouer():
     ljoueur=[joueur1,joueur2]
     indice_alea=random.randint(0,1)
     indice=indice_alea
-    
     gagnant=''
 
   
