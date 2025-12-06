@@ -228,7 +228,7 @@ def mise_Ajour(grille:list[list[str]],i:int,j:int,choix:str)->list[list[str]]:
     nouv_grille[i][j]=choix
     return nouv_grille
 
-def trouver(grille)->bool:
+def trouver(grille:list[list[str]])->bool:
     """ Renvoie True si au moins un alignement est vrai
 
     Précondition : 
