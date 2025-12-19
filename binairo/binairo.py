@@ -40,7 +40,12 @@ def affichage_grille(grille:list[list[str]]) -> None:
         affiche_motif()
         affiche_barre(grille[i][0],grille[i][1],grille[i][2],grille[i][3])
     affiche_motif()
-
+def afficher_menu():
+    print("\n===== MENU NIVEAU BINAIRO =====")
+    print("1 - Niveau facile")
+    print("2 - Niveau moyen")
+    print("3 - Niveau difficile")
+    print("===============================")  
 # Saisie
 def saisie_coordonne()->list[int]:
     """ Saisie les coordonne de la case ( ligne et colonne)
@@ -442,14 +447,39 @@ def a_gagner(grille:list[list[str]])->bool:
        if not est_egal(grille,i):
             return False
     return True
-
+def choix_file(liste:list[str],entier:int)->str:
+    """
+    Précondition : 
+    Exemple(s) :
+    $$$ choix_file(['bah','blabla','blablakar'],1)
+    'bah'
+    $$$ choix_file(['bah','blabla','blablakar'],3)
+    'blablakar'
+    """
+    fichier=''
+    if entier == 1:
+        fichier=liste[0]
+    elif entier == 2:
+        fichier=liste[1]
+    elif entier == 3:
+        fichier=liste[2]
+    return fichier 
+      
+    
         
 def jouer():
     grille=grille_vide()
     affichage_grille(grille)
+    liste_file=['init_config.txt','config_moyen.txt','config_hard.txt']
     avis=input("Voulez-vous jouer Y/N: ")
     if avis=='Y':
-        nouvel_grille=init_grille('init_config.txt',grille)
+        afficher_menu()
+        choix_niveau=int(input("Entrez le niveau de jeu: "))
+        while choix_niveau<1 or choix_niveau>3:
+            choix_niveau=int(input("Entrez le niveau de jeu: "))
+            
+        fichier=choix_file(liste_file,choix_niveau)
+        nouvel_grille=init_grille(fichier,grille)
         inchangeable=inchangeables('init_config.txt')
         affichage_grille(nouvel_grille)
         while (not est_plein(nouvel_grille)) or (not a_gagner(nouvel_grille)):
