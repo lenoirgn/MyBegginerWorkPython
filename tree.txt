@@ -1,0 +1,54 @@
+.
+├── au_cinema.py
+├── barre_progression.py
+├── binairo
+│   ├── binairo_journal.md
+│   ├── binairo.py
+│   ├── config_hard.txt
+│   ├── config_moyen.txt
+│   └── init_config.txt
+├── calculs_sem2.py
+├── coding_week.py
+├── complet_for.py
+├── correctionDS24.py
+├── correction_td.py
+├── estimation_pi.py
+├── fonctions_simples_compl.py
+├── fonctions_simples.py
+├── format_valide.py
+├── hexadecimal.py
+├── imprimerie.py
+├── iterables_for.py
+├── jeu_421.py
+├── Jeu_de_scrabble.py
+├── jeu_nim.py
+├── lettre_postale.py
+├── liste_nb_premier.py
+├── manip_formules_sem1.py
+├── masque.py
+├── mesure_global.py
+├── minutes_sem2.py
+├── panneau_sem2.py
+├── parcours_interrompus_simples.py
+├── parcours_interrompus_synthese.py
+├── predicats_plus_complexes.py
+├── predicats_simples.py
+├── prix_special.py
+├── python_file
+│   ├── fichier1.txt
+│   ├── fichier2.txt
+│   ├── fichier3.txt
+│   └── fusion_liste.py
+├── range.py
+├── README.md
+├── sequences_indexation.py
+├── suite_syracuse.py
+├── sujet_miage.py
+├── Tic_tac_toe
+│   ├── journal_tictactoe.md
+│   └── tictactoe.py
+├── tree.txt
+├── tva_sem2.py
+└── while.py
+
+4 directories, 48 files
