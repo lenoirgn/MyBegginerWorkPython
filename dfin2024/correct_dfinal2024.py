@@ -25,12 +25,14 @@ def est_permutation(liste:list[int])->bool:
     True
     $$$ est_permutation(([2, 1, 3,5]))
     False
+    $$$ est_permutation(([1, 1, 3,4]))
+    False
     """
-    trouve=True
+    
     for i in range(1,len(liste)+1):
         if not i in liste:
-            trouve=False
-    return trouve
+            return False
+    return True
         
 SEPH_DIFF = '|' # séparateur horizontal entre 2 valeurs de zones différentes
 SEPH = '  ' # séparateur horizontal entre 2 valeurs de zones identiques
@@ -40,7 +42,6 @@ COIN = '+' # coin d'une case
 ESP = ' ' # espacement de part et d'autre d'une valeur
 def case_formatee(couple:tuple[int, int])->str:
     """ 
-
     Précondition : 
     Exemple(s) :
     $$$ case_formatee((0,1))
