@@ -133,14 +133,11 @@ def genere_liste_sans_begaiement(entier:int,liste:[str])->list[str]:
     """
     
     res=[]
-    prec=''
+    res.append(choice(liste))
     while len(res)<entier:
-        elemt=choice(''.join(liste))
-       
-        while elemt==prec:
-             elemt=choice(''.join(liste))
-        res.append(elemt)
-        prec=elemt
+        elemt=choice(liste)
+        if res[-1]!=elemt:
+            res.append(elemt)
     return res      
          
 def affiche_sans_begaiement(liste:list[str]):
