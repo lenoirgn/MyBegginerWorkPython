@@ -77,25 +77,20 @@ def indice(mot: str, car: str) -> int:
         return 1 + indice(mot[1:], car)
 
 def liste_somme_rec(liste:list[int])->int:
-    if len(liste) == 1:
+    if len(liste) == 0:
+        return 0
+    elif len(liste) == 1:
         return liste[0]
     return liste[0]+liste_somme_rec(liste[1:])
 
 def liste_produit_rec(liste:list[int])->int:
-    if len(liste) == 1:
+    if len(liste) == 0:
+        return 0
+    elif len(liste) == 1:
         return liste[0]
     return liste[0]*liste_produit_rec(liste[1:])
 
 def split(liste: list[int])->tuple[list[int],list[list[int]]]:
-    if len(liste) == 0:
-        return ([],[])
-    elif len(liste)%2 == 0:
-        tuple([].append(liste[0]))
-
-        return split(liste[1:])
-    else:
-        tuple([], [].append(liste[0]))
-        return split(liste[1:])
 
 
 
