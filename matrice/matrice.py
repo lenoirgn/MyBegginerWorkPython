@@ -24,6 +24,21 @@ def somme(grille0:list[list[int]],grille1:list[list[int]],choix:int)->list[list[
 def sont_egale(grille:list[list[int]],grille1:list[list[int]]) -> bool :
     return len(grille[0])==len(grille1)
 
+def est_carre(grille:list[list[int]]) -> bool:
+    return len(grille)==len(grille[0])
+
+def est_identite(grille:list[list[int]]) -> bool:
+    if est_carre(grille):
+        taille=len(grille)
+        for i in range(taille):
+            for j in range(taille):
+                if i == j and grille[i][j] != 1:
+                    return False
+                if i != j and grille[i][j] != 0:
+                    return False
+        return True
+    return False
+
 
 def Colonne(grille: list[list[int]], ind: int) -> list[int]:
     """ Renvoie  la colonne d’indice ind
@@ -59,7 +74,11 @@ def produit(grille: list[list[int]], grille1: list[list[int]]) -> list[list[int]
             ligne.append(somme)
         result.append(ligne)
     return result
-
+def est_inverse(grille:list[list[int]],grille1:list[list[int]])  -> bool:
+    "Renvoie True grille1 est l'inverse de grille"
+    if dimension_egale(grille,grille1):
+        return est_identite(produit(grille,grille1))
+    return False
 
 def saisie(choix:int):
     liste=[]
