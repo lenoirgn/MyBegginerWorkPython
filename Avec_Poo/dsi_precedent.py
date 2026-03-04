@@ -226,11 +226,7 @@ class Matrice:
         if isinstance(other,Matrice):
             if self.nb_lignes==other.nb_lignes:
                 lvaleur1=[value for value in self.coefficients.values() ]
-                lvaleur2=[]
-                
-                    
-                for key in other.coefficients.values():
-                    lvaleur2.append(key)
+                lvaleur2=[value for value in other.coefficients.values() ]
                 result={}
                 lkey=[]
                 for value in self.coefficients.keys():
@@ -317,15 +313,36 @@ def propositions_prix (command: dict, dicolivreur: dict) -> dict:
         if peut_etre_honoree(command,dicolivreur[livreur]):
             result[livreur] = total_command(command,dicolivreur[livreur])
     return result
-reine_morgane = {'servomoteur': 9.00, 'peinture': 62.00}
-aladin = {'servomoteur': 6.50, 'tête chauffante': 8.20}
-andromaque = {'servomoteur': 8.90, 'peinture': 61.99, "tête chauffante": 11.90}
 
-print(propositions_prix({'servomoteur': 10, 'tête chauffante': 2},{ "Reine Morgane": reine_morgane, "Aladin": aladin,"Andromaque": andromaque}))
+#2023
+
+def plus_long_prefixe(mot1:str, mot2:str)->str:
+    if mot1=='' or mot2=='':
+        return ' '
+    elif mot1[0:1]==mot2[0:1]:
+        return mot1[0] +plus_long_prefixe(mot1[1:],mot2[1:])
+    else:
+        return ' '
+def plus_long_prefixe_commun_seq(listechaine:str)->str:
+    prefixe=listechaine[0]
+    for chaine in listechaine[1:]:
+        prefixe=plus_long_prefixe(prefixe,chaine)
+    return prefixe
+
+def plus_long_prefixe_commun_rec(listechaine:list[str])->str:
+    if len(listechaine)==1:
+        return listechaine[0]
+    else:
+        m = len(listechaine) // 2
+        l1 = listechaine[:m]
+        l2 = listechaine[m:]
+        prex1 = plus_long_prefixe_commun_rec(l1)
+        prex2 = plus_long_prefixe_commun_rec(l2)
+        return plus_long_prefixe(prex1, prex2)
 
 
+print(plus_long_prefixe_commun_rec(['mt','mamadou','mat']))
 
-    
         
       
     
