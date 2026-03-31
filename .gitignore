@@ -1,3 +1,11 @@
 
 .vscode/
 binairo/.idea/
+matrice/__pycache__/
+matrice/.pytest_cache/
+matrice/.idea/
+matrice/noir/
+
+# Fichiers Python compilés
+matrice/*.pyc
+

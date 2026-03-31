@@ -91,7 +91,4 @@ def liste_produit_rec(liste:list[int])->int:
     return liste[0]*liste_produit_rec(liste[1:])
 
 def split(liste: list[int])->tuple[list[int],list[list[int]]]:
-
-
-
-
+    pass
