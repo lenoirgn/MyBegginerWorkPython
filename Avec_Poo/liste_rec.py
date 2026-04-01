@@ -8,7 +8,8 @@ from tdm09.aplst import *
 
 Liste=ApLst(3, ApLst(1, ApLst(4, ApLst())))
 Liste2=ApLst(5, ApLst(2, ApLst(6, ApLst())))
-liste3=ApLst(Liste,Liste2)
+liste4=ApLst()
+liste3=ApLst(Liste,ApLst(liste4,ApLst(Liste2,ApLst())))
 
 def length(liste: ApLst):
     tem=liste
@@ -72,9 +73,33 @@ def reverse(liste:ApLst):
 
 def flatten(liste:ApLst):
     "Flatten a list"
-    
+    lres=ApLst()
+    for i in range(length(liste)):
+        print(lres)
+        lres=concat(lres,nth(liste,i))
+    return lres
+
+def zip(li1:ApLst,li2:ApLst):
+    "Zip  liste1 and liste2"
+    li1=reverse(li1)
+    li2=reverse(li2)
+    lres=ApLst()
+    for i in range(length(li1)):
+        lres=ApLst((li1.head(),li2.head()),lres)
+        li1=li1.tail()
+        li2=li2.tail()
+    return lres
+def unzip(liste:ApLst):
+    "Unzip a liste"
+    li1=ApLst()
+    li2=ApLst()
+    for i in range(length(liste)):
+        li1=ApLst(liste.head()[0],li1)
+        li2=ApLst(liste.head()[1],li2)
+        liste=liste.tail()
+    return reverse(li1),reverse(li2)
 
 
-print(length(liste3))
-print(flatten(liste3))
+
+
 
