@@ -1,12 +1,9 @@
 import sys
-
-from pygments.lexers.apl import APLLexer
-
 sys.path.append("/home/lenoirgn/Documents/ap_tdm_mamadou")
 
 from tdm09.aplst import *
 
-Liste=ApLst(3, ApLst(1, ApLst(4, ApLst())))
+Liste=ApLst(3, ApLst(1, ApLst(7, ApLst())))
 Liste2=ApLst(5, ApLst(2, ApLst(6, ApLst())))
 liste4=ApLst()
 liste3=ApLst(Liste,ApLst(liste4,ApLst(Liste2,ApLst())))
@@ -49,10 +46,13 @@ def last(liste:ApLst):
     "Return the last element in a list"
     if liste.is_empty():
         raise Exception("Liste est vide")
-    elif length(liste)==1:
+    #elif length(liste)==1:
+    elif liste.tail().is_empty():
         return liste.head()
     else:
         return last(liste.tail())
+
+#print(last(Liste))
 def concat(li1:ApLst,li2:ApLst):
     "Concatenate two lists"
     if li1.is_empty() :
@@ -64,11 +64,15 @@ def concat(li1:ApLst,li2:ApLst):
 def reverse(liste:ApLst):
     "Reverse a list"
 
-    if length(liste)==1:
+    #if length(liste)==1:
+    if liste.is_empty():
         return liste
+    elif liste.tail().is_empty():
+        return ApLst(liste.head(),ApLst())
     else:
         return concat(reverse(liste.tail()),ApLst(liste.head(),ApLst()))
 
+print(reverse(Liste))
 
 
 def flatten(liste:ApLst):
@@ -81,23 +85,42 @@ def flatten(liste:ApLst):
 
 def zip(li1:ApLst,li2:ApLst):
     "Zip  liste1 and liste2"
-    li1=reverse(li1)
-    li2=reverse(li2)
-    lres=ApLst()
-    for i in range(length(li1)):
-        lres=ApLst((li1.head(),li2.head()),lres)
-        li1=li1.tail()
-        li2=li2.tail()
-    return lres
+    if li1.is_empty() or li2.is_empty():
+        return ApLst()
+    else:
+        return ApLst((li1.head(),li2.head()),zip(li1.tail(),li2.tail()))
+
+
 def unzip(liste:ApLst):
     "Unzip a liste"
-    li1=ApLst()
-    li2=ApLst()
-    for i in range(length(liste)):
-        li1=ApLst(liste.head()[0],li1)
-        li2=ApLst(liste.head()[1],li2)
-        liste=liste.tail()
-    return reverse(li1),reverse(li2)
+    if liste.is_empty():
+        return ApLst(),ApLst()
+    else:
+        x,y=liste.head()
+        li1,li2=unzip(liste.tail())
+        return ApLst(x,li1),ApLst(x,li2)
+
+
+
+def indice(li: ApLst(), a: int) -> int:
+    if li.is_empty():
+        return -1
+    elif li.head() == a:
+        return 0
+    else:
+        return 1 + indice(li.tail(), a)
+
+
+def nb_occurence(li, a: int) -> int:
+    if li.is_empty():
+        return 0
+    elif li.head() == a:
+        return 1 + nb_occurence(li.tail(), a)
+    else:
+        return nb_occurence(li.tail(), a)
+
+
+#print(nb_occurence(Liste,1))
 
 
 

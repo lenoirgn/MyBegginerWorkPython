@@ -31,6 +31,20 @@ def indice_dicho(liste: list[any], elt: int,a:int,b:int,comp:Callable[[any, any]
         a+=1
     return a
 
+def indice_dicho_v2(liste:list[any], elt:any,a:int,b:int,comp:Callable[[any, any], int])->int:
+    if a > b:
+        return -1
+    m = (a + b) // 2
+    if comp(elt, liste[m]) == 0:
+        return m
+    elif comp(elt, liste[m]) > 0:
+        return indice_dicho_v2(liste, elt, m, b, comp)
+    else:
+        return indice_dicho_v2(liste, elt, a, m , comp)
+
+print(indice_dicho_v2([1,2,2,3,3,4,5],2.5,0,6,compare))
+
+
 def tri_insert_dicho(liste: list[any], comp: Callable[[any, any], int] = compare):
     """
     trie la liste en utilisant l'insertion dichotomique.
@@ -45,12 +59,12 @@ def tri_insert_dicho(liste: list[any], comp: Callable[[any, any], int] = compare
     $$$ l
     [1, 1, 3, 4, 5] """
     for i in range(1,len(liste)):
-        indice=indice_dicho(liste,liste[i],i,len(liste),comp)
+        indice=indice_dicho_v2(liste,liste[i],i,len(liste),comp)
         insertion(liste,indice,comp)
 
 l=[3, 1, 4, 1, 5]
 tri_insert_dicho(l,compare)
-#print(l)
+print(l)
 
 def copie_file(qu: ApQueue) -> ApQueue:
     """
@@ -87,13 +101,17 @@ def est_expression_valide (file:ApQueue)->bool:
     copie=copie_file(file)
     comp_nb=0
     comp_signe=0
+    autre=True
     while not copie.is_empty():
         el=copie.dequeue()
         if str(el).isdigit():
             comp_nb+=1
         elif el in signes:
             comp_signe+=1
-    return comp_nb==1+comp_signe
+        else:
+            autre=False
+
+    return comp_nb==1+comp_signe and autre
 
 l=[2,3,"+",1,"-","+"]
 file=ApQueue()
@@ -166,6 +184,7 @@ def partition(li:ApLst,a:int)->(ApLst,ApLst):
     inf=plus_petit(li,a)
     return sup,inf
 
+
 #print(partition(Liste,3))
 
 def tri_rapide(li:ApLst)->ApLst:
@@ -179,5 +198,5 @@ def tri_rapide(li:ApLst)->ApLst:
         return concatenation(inf_f,ApLst(pivot,sup_f))
 
 l=tri_rapide(Liste)
-print(l)
+#print(l)
 

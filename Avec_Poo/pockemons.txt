@@ -1,0 +1,4 @@
+nom;niveau;atq;def;pv;type1;type2
+Poticha;7;42;18;31;combat;feu
+Bebegruut;5;12;38;82;plante;
+Helios;5;31;45;44;combat;
